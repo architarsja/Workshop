@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archita R | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #38bdf8;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+            background:
+                radial-gradient(circle at top right, rgba(56,189,248,0.15), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(139,92,246,0.15), transparent 35%);
+        }
+        .hero-content {
+            max-width: 850px;
+            animation: fadeUp 1s ease;
+        }
+        .profile-circle {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            box-shadow: 0 0 45px rgba(56,189,248,0.35);
+        }
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            margin-bottom: 10px;
+        }
+        .hero h1 span {
+            color: #38bdf8;
+        }
+        .hero h2 {
+            color: #cbd5e1;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #94a3b8;
+            font-size: 18px;
+        }
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .primary {
+            background: #38bdf8;
+            color: #07111f;
+        }
+        .secondary {
+            border: 1px solid #334155;
+            color: #e2e8f0;
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+        section {
+            padding: 90px 8%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+        .section-title p {
+            color: #94a3b8;
+        }
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        /* Skills */
+        .skills-container {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 28px 20px;
+            text-align: center;
+            border-radius: 18px;
+            background: #111827;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 45px;
+            text-align: center;
+            background: linear-gradient(145deg, #111827, #0f172a);
+            border: 1px solid #1e293b;
+            border-radius: 25px;
+        }
+        .contact-box p {
+            color: #94a3b8;
+            margin: 15px 0 25px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            text-decoration: none;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            background: #38bdf8;
+            color: #07111f;
+            border-color: #38bdf8;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 650px) {
+            nav {
+                padding: 15px 5%;
+            }
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+            .hero h2 {
+                font-size: 20px;
+            }
+            section {
+                padding: 70px 5%;
+            }
+            .contact-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AR.</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="profile-circle">
+                AR
+            </div>
+            <h1>Hi, I'm <span>Archita</span></h1>
+            <h2>Computer Science Engineering Student</h2>
+            <p>
+                I am a passionate developer interested in web development,
+                programming and building creative technology solutions.
+                I enjoy learning new technologies and turning ideas into
+                useful applications.
+            </p>
+            <div class="buttons">
+                <a href="#skills" class="btn primary">Explore My Skills</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>A little about my journey</p>
+        </div>
+        <div class="about">
+            <p>
+                I am a Computer Science Engineering student with an interest
+                in developing new projects and modern web technologies.
+                I enjoy developing projects that solve real-world problems
+                while improving my programming and problem-solving skills.
+            </p>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Technologies and tools I work with</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>HTML</h3>
+                <p>Building structured web pages</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Creating responsive interfaces</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Adding interactive functionality</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🐍</div>
+                <h3>C</h3>
+                <p>Programming and problem solving</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">☕</div>
+                <h3>Java</h3>
+                <p>Object-oriented programming</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🗄️</div>
+                <h3>Database</h3>
+                <p>Working with SQL databases</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="section-title">
+            <h2>Let's Connect</h2>
+            <p>Feel free to reach out to me</p>
+        </div>
+        <div class="contact-box">
+            <h2>Have a project or opportunity?</h2>
+            <p>
+                I'm always interested in learning, collaborating and
+                working on interesting technology projects.
+            </p>
+            <div class="social-links">
+                <a href="mailto:architarsja2007@gmail.com">
+                    📧 Email
+                </a>
+                <a href="https://github.com/architarsja" target="_blank">
+                    💻 GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/archita-ramachandran-a69a55319/" target="_blank">
+                    🔗 LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        © 2026 Archita R. All Rights Reserved.
+    </footer>
+</body>
+</html>
+```
